@@ -6,13 +6,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/send-test', function () {
-    $service = new \App\Services\AdminMailService();
-    $service->sendAdminMail();
-
-    dd('worked', time());
-});
-
 Route::get('/test-jobs', function () {
     $service = new \App\Services\ParseService();
     $input = request()->get('secondsToWait') ?? '2,3,1,2';
